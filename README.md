@@ -18,8 +18,8 @@ AI 駆動開発で使い回すための、設計と開発工程のボイラー�
 Claude Code で使う。2 つのスキルは互いを参照するので、同じディレクトリに並べて置く。
 
 ```sh
-git clone https://github.com/tkc310/system-factory.git
-cd system-factory
+git clone https://github.com/tkc310/software-factory.git
+cd software-factory
 
 # すべてのプロジェクトで使う(個人のスキル)
 mkdir -p ~/.claude/skills
