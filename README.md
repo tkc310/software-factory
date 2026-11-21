@@ -110,10 +110,10 @@ cp -r .claude/skills/architecture-selection .claude/skills/software-factory <対
 | 層 | 生成するもの |
 | --- | --- |
 | 工程 | 仕様化 → 計画 → 実装 → 検証 → 独立レビュー → 振り返り → マージ。準備完了と完了の定義、仕様の雛形 |
-| 役割 | サブエージェント `planner` / `implementer` / `reviewer` / `retro` と、コマンド `/spec` `/build` `/review` `/retro` |
+| 役割 | サブエージェント `planner` / `implementer` / `reviewer` / `retro` と、コマンド `/spec` `/build` `/verify` `/review` `/retro`。`/verify` はアプリを利用者と同じ経路で動かし、完了の証拠を残す |
 | ガードレール | 権限の allow / ask / deny、危険なコマンドの拒否、保護パス、検査を通さない完了の阻止、秘密情報の検出、CODEOWNERS |
 | 無人ジョブ | PR ごとのエージェントのレビューと週次の改善。形式 A: GitHub Actions + API キー、形式 B: lefthook + ルーティン(サブスクリプション)から選ぶ。レビュー結果は必須チェック `factory/review` になり、`--no-verify` で回避してもマージできない |
-| 改善ループ | PR ごとの振り返り(LESSONS.md)と、週次で規則を強める下書き PR。規則を緩める変更は自動では提案しない |
+| 改善ループ | PR ごとの振り返りと会話の訂正の記録(LESSONS.md)、改善提案の Issue、週次で規則を強める下書き PR。原因で扱いを分け(知識の不足は文書、曖昧なルールは書き直し)、構造で直したら文章を消す。規則を緩める変更は自動では提案しない |
 
 ## 構成
 
@@ -147,8 +147,8 @@ cp -r .claude/skills/architecture-selection .claude/skills/software-factory <対
 ├── SKILL.md
 ├── references/                 # stations / roles / guardrails / improvement-loop / audit-checklist
 └── templates/
-    ├── claude/                 # agents / skills(/spec /build /review /retro)/ hooks / settings.json
-    ├── github/                 # 形式 A の agent-review / factory-improve、secrets-scan、PR テンプレート
+    ├── claude/                 # agents / skills(/spec /build /verify /review /retro)/ hooks / settings.json
+    ├── github/                 # 形式 A の agent-review / factory-improve、secrets-scan、PR と改善提案の Issue のテンプレート
     ├── routines/               # 形式 B のルーティンのプロンプトと設定手順
     ├── scripts/factory/        # 無人ジョブ用: レビュー結果の投稿、下書き PR と Issue の作成、push 前の手元のレビュー
     └── docs/                   # factory/README.md, factory/improve.md, specs/TEMPLATE.md

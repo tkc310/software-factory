@@ -29,13 +29,14 @@ description: AI 駆動開発のソフトウェアファクトリー(工程、エ
 | 工場の運用手順 | `docs/factory/README.md`、`docs/factory/improve.md` | `templates/docs/factory/` |
 | 仕様の雛形 | `docs/specs/TEMPLATE.md` | `templates/docs/specs/` |
 | エージェントの役割 | `.claude/agents/*.md` | `templates/claude/agents/` |
-| 工程のコマンド(`/spec`、`/build`、`/review`、`/retro`) | `.claude/skills/<name>/SKILL.md` | `templates/claude/skills/` |
+| 工程のコマンド(`/spec`、`/build`、`/verify`、`/review`、`/retro`) | `.claude/skills/<name>/SKILL.md` | `templates/claude/skills/` |
 | 権限とフック | `.claude/settings.json`、`.claude/hooks/*.sh` | `templates/claude/` |
 | 無人ジョブ用のスクリプト | `scripts/factory/*.sh` | `templates/scripts/factory/` |
 | 秘密情報の検出(両形式) | `.github/workflows/secrets-scan.yml` | `templates/github/workflows/` |
 | 形式 A: Claude の無人ジョブ | `.github/workflows/agent-review.yml`、`factory-improve.yml` | `templates/github/workflows/` |
 | 形式 B: Claude の無人ジョブ | ルーティン `factory-review`、`factory-improve` と、lefthook の pre-push | `templates/routines/`、`templates/lefthook.factory.yml` |
 | PR の雛形 | `.github/pull_request_template.md` | `templates/github/` |
+| 改善提案の Issue の雛形 | `.github/ISSUE_TEMPLATE/improvement.yml` | `templates/github/ISSUE_TEMPLATE/` |
 | `AGENTS.md` への追記 | `AGENTS.md` の末尾 | `templates/AGENTS.factory.md` |
 
 置き方の手順は `templates/README.md` にある。
@@ -52,7 +53,7 @@ description: AI 駆動開発のソフトウェアファクトリー(工程、エ
      - 形式 B: lefthook + ルーティン。サブスクリプションの利用枠で動く。安全のための設定が多い
      - 決まらなければ形式 A を勧める
    - 秘密情報の検出に gitleaks を使えるか(組織のリポジトリではライセンスキーが要る)
-3. `templates/README.md` の手順で雛形を置く。角括弧を埋め、ARCHITECTURE.md の構造の段階(小規模 / 中規模以上)に合わせて、役割の定義の「読むもの」を調整する。
+3. `templates/README.md` の手順で雛形を置く。角括弧を埋め、ARCHITECTURE.md の構造の段階(小規模 / 中規模以上)に合わせて、役割の定義の「読むもの」を調整する。画面があるときは、検証スキル(`/verify`)の起動・操作・証拠の手段をリポジトリから調べて埋め、一度通しで実行する。分からないことだけを人に聞く。
 4. ARCHITECTURE.md の「編集制約」に、工場が追加した保護パスと強制の仕組みを書く。工場の導入を ADR に書く。
 5. 点検する(`references/audit-checklist.md` の「生成後の点検」)。
 6. ブランチ保護の設定(必須チェック、コードオーナーのレビュー、迂回の禁止)、シークレットの登録、ルーティンの作成は、権限の変更なので人に依頼する。手順(`templates/README.md`、形式 B では `templates/routines/README.md`)を示して、人が行う。

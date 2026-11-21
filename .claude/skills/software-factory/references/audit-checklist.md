@@ -6,7 +6,9 @@
 
 - [ ] architecture-selection のハーネスがあり、`make check` が通る。コマンドの入口が `Makefile` に一つで、エージェントが `pnpm` や各ツールを直接叩くと拒否される
 - [ ] `.claude/agents/` に 4 つの役割があり、`reviewer` のツールに Edit と Write がない
-- [ ] `/spec`、`/build`、`/review`、`/retro` が使える
+- [ ] `/spec`、`/build`、`/verify`、`/review`、`/retro` が使える
+- [ ] `/verify` の角括弧が埋まり、起動 → 診断 → 機能を 1 つ操作 → 証拠の記録 → 後片付けを一度通しで実行した
+- [ ] `.github/ISSUE_TEMPLATE/improvement.yml` があり、ラベル `improvement` が作られている
 - [ ] `.claude/settings.json` に、権限(allow / ask / deny)とフック(PreToolUse 2 つ、PostToolUse、Stop)がある
 - [ ] `guard-bash.sh` が `git push --force` を終了コード 2 で拒否する
 - [ ] `guard-paths.sh` が `.claude/agents/reviewer.md` への書き込みを拒否する
@@ -39,3 +41,6 @@
 - [ ] 回数が 2 以上のまま 4 週以上放置された記録がない
 - [ ] 昇格した規則に、効き目を示す例(違反する fixture やテスト)が付いている
 - [ ] 規則を緩める変更が、Issue と ADR を経ずに入っていない
+- [ ] LESSONS.md の「ルールと強制手段の対応表」が最新で、強制手段が「なし」のルールが一覧になっている
+- [ ] 強制手段ができたルールの文章が、AGENTS.md や規約から消えている
+- [ ] 画面に関わる直近の PR に、検証スキルで動かした証拠が付いている

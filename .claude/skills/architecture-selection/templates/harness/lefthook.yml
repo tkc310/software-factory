@@ -14,7 +14,9 @@ pre-commit:
       glob: "src/**/*.{ts,tsx}"
       run: pnpm exec depcruise --config .dependency-cruiser.cjs {staged_files}
 
+# フックから呼ぶ make では、値を渡す変数(pkg、name、args)を空にする。make のコマンド行の変数は
+# MAKEFLAGS で入れ子の make に引き継がれるので、make のターゲットの中から git push すると、その値が検査に渡る。
 pre-push:
   commands:
     check:
-      run: make check
+      run: make check pkg= name= args=
