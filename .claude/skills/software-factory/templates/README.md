@@ -9,12 +9,13 @@ architecture-selection のハーネスを置いた後に置く。形式(A: GitHu
 | `docs/factory/README.md`、`docs/factory/improve.md` | 同じパス | 角括弧を埋め、採った形式の行だけを残す |
 | `docs/specs/TEMPLATE.md` | 同じパス | 編集してよいパスの例を構造の段階に合わせる(小規模では `src/features/<feature>/` だけにする) |
 | `claude/agents/*.md` | `.claude/agents/` | そのまま |
-| `claude/skills/*/SKILL.md` | `.claude/skills/<name>/SKILL.md` | そのまま |
+| `claude/skills/*/SKILL.md` | `.claude/skills/<name>/SKILL.md` | そのまま。`verify` だけは、角括弧をプロジェクトの起動・操作・証拠の手段で埋め、一度通しで実行する |
 | `claude/hooks/*.sh` | `.claude/hooks/` | `chmod +x`。`jq` を使う |
 | `claude/settings.json` | `.claude/settings.json` | ハーネスの `.claude/settings.json` を**置き換える**(ハーネスのフックも含んでいる)。許可リストをプロジェクトのコマンドに合わせる |
 | `scripts/factory/*.sh` | `scripts/factory/` | `chmod +x`。無人ジョブだけが使える(`FACTORY_JOB` で制限) |
 | `github/workflows/secrets-scan.yml` | `.github/workflows/` | 組織のリポジトリでは `GITLEAKS_LICENSE` が要る |
 | `github/pull_request_template.md` | `.github/pull_request_template.md` | そのまま |
+| `github/ISSUE_TEMPLATE/improvement.yml` | `.github/ISSUE_TEMPLATE/improvement.yml` | ラベル `improvement` を作る(`gh label create improvement`) |
 | `AGENTS.factory.md` | `AGENTS.md` の末尾に追記 | ファイル自体は置かない |
 | `lefthook.factory.yml` の `pre-commit` | `lefthook.yml` に統合 | ファイル自体は置かない |
 

@@ -13,6 +13,7 @@ Issue → /spec → [人が承認] → /build → /review → PR → GitHub 側�
 | 1〜2 仕様化と計画 | `/spec <Issue 番号>` | planner | `docs/specs/NNNN-<slug>.md` |
 | 承認 | — | 人 | 仕様の状態を「承認」に |
 | 3〜4 実装と検証 | `/build <仕様のパス>` | implementer、フック | ブランチ、コミット |
+| 4 動かして確かめる | `/verify <feature の名前>` | implementer | 証拠(画面、応答、副作用の記録) |
 | 5 独立レビュー | `/review <仕様のパス>` | reviewer | 必須 / 推奨の指摘 |
 | PR | `/build` の最後 | `/build`(人が確認) | PR |
 | GitHub 側の検査 | 自動 | 品質ゲート、secrets-scan、エージェントのレビュー([形式 A: GitHub Actions / 形式 B: ルーティン]) | 必須チェック、レビューコメント、`factory/review` |
@@ -32,6 +33,7 @@ Issue → /spec → [人が承認] → /build → /review → PR → GitHub 側�
 
 - [ ] `make check` が通る
 - [ ] 受け入れ条件ごとにテストがあり、PR で対応を示した
+- [ ] 確かめたこと(コマンドと結果)を PR に書いた。画面や利用者の操作に関わる変更は `/verify` の証拠を付けた
 - [ ] reviewer の必須の指摘がない
 - [ ] 仕様の範囲外の変更がない
 - [ ] 振り返りを済ませた
